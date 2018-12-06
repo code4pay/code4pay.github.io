@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "type": "object",
+  "title": "Website Status Response",
+  "properties": {
+    "echo_req": {
+      "title":"Echo request",
+      "description":"Echo of the request made",
+      "required": 1
+    },
+    "website_status": {
+    	"type": "object",
+    	"properties": {
+        "terms_conditions_version": {
+          "type": "string",
+          "description":"Latest terms and conditions version"
+        },
+        "api_call_limits": {
+            "type": "object",
+            "title": "API call limits",
+            "description": "Limits for api call for each websocket connection"
+        },
+        "clients_country": {
+          "type": "string",
+          "description": "Country code of connected IP"
+        },
+        "supported_languages": {
+          "type": "array",
+          "description": "Provides codes for languages supported",
+          "items": {
+            "type": "string"
+          }
+        },
+        "currencies_config": {
+            "type": "object",
+            "description": "Configurations of supported currencies; including type, decimal digits (fractional_digits), default stake amount and minimum transfer amount"
+        },
+        "site_status": {
+          "type":"string",
+          "pattern": "^(up|down)$",
+          "description": "Current status of the site. up or down"
+        },
+        "message": {
+          "type":"string",
+          "description": "Text for site status banner, contains problem description.  Shown only if set by the system"
+        }
+      }
+    },
+    "msg_type": {
+        "type": "string",
+        "description": "website_status",
+        "required": 1
+    },
+    "req_id": {
+        "type": "integer",
+        "description": "Optional field send in request to map to response, present only when request contains req_id"
+    }
+  }
+}

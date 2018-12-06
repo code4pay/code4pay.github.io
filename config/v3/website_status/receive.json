@@ -1,59 +1,63 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "type": "object",
-  "title": "Website Status Response",
-  "properties": {
-    "echo_req": {
-      "title":"Echo request",
-      "description":"Echo of the request made",
-      "required": 1
-    },
-    "website_status": {
-    	"type": "object",
-    	"properties": {
-        "terms_conditions_version": {
-          "type": "string",
-          "description":"Latest terms and conditions version"
-        },
-        "api_call_limits": {
-            "type": "object",
-            "title": "API call limits",
-            "description": "Limits for api call for each websocket connection"
-        },
-        "clients_country": {
-          "type": "string",
-          "description": "Country code of connected IP"
-        },
-        "supported_languages": {
-          "type": "array",
-          "description": "Provides codes for languages supported",
-          "items": {
-            "type": "string"
-          }
-        },
-        "currencies_config": {
-            "type": "object",
-            "description": "Configurations of supported currencies; including type, decimal digits (fractional_digits), default stake amount and minimum transfer amount"
-        },
-        "site_status": {
-          "type":"string",
-          "pattern": "^(up|down)$",
-          "description": "Current status of the site. up or down"
-        },
-        "message": {
-          "type":"string",
-          "description": "Text for site status banner, contains problem description.  Shown only if set by the system"
-        }
+   "$schema" : "http://json-schema.org/draft-04/schema#",
+   "required" : [
+      "echo_req",
+      "msg_type"
+   ],
+   "type" : "object",
+   "description" : null,
+   
+   "title" : "Website Status Response",
+   "properties" : {
+      "msg_type" : {
+         "description" : "website_status",
+         "type" : "string"
+      },
+      "website_status" : {
+         "properties" : {
+            "supported_languages" : {
+               "description" : "Provides codes for languages supported",
+               "type" : "array",
+               "items" : {
+                  "type" : "string"
+               }
+            },
+            "api_call_limits" : {
+               "title" : "API call limits",
+               "description" : "Limits for api call for each websocket connection",
+               "type" : "object"
+            },
+            "currencies_config" : {
+               "description" : "Configurations of supported currencies; including type, decimal digits (fractional_digits), default stake amount and minimum transfer amount",
+               "type" : "object"
+            },
+            "message" : {
+               "description" : "Text for site status banner, contains problem description.  Shown only if set by the system",
+               "type" : "string"
+            },
+            "site_status" : {
+               "pattern" : "^(up|down)$",
+               "description" : "Current status of the site. up or down",
+               "type" : "string"
+            },
+            "clients_country" : {
+               "type" : "string",
+               "description" : "Country code of connected IP"
+            },
+            "terms_conditions_version" : {
+               "description" : "Latest terms and conditions version",
+               "type" : "string"
+            }
+         },
+         "type" : "object"
+      },
+      "req_id" : {
+         "description" : "Optional field send in request to map to response, present only when request contains req_id",
+         "type" : "integer"
+      },
+      "echo_req" : {
+         "description" : "Echo of the request made",
+         "title" : "Echo request"
       }
-    },
-    "msg_type": {
-        "type": "string",
-        "description": "website_status",
-        "required": 1
-    },
-    "req_id": {
-        "type": "integer",
-        "description": "Optional field send in request to map to response, present only when request contains req_id"
-    }
-  }
+   }
 }
