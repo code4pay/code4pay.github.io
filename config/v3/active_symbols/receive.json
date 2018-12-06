@@ -4,7 +4,8 @@
    "title" : "Active Symbols Response",
    "description" : "A message containing the list of active symbols.",
    "required" : [
-      "active_symbols"
+      "echo_req",
+      "msg_type"
    ],
    "type" : "object",
    "properties" : {
