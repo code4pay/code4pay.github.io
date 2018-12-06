@@ -7,7 +7,7 @@ function getBaseUrl(url) {
 }
 
 require.config({
-    baseUrl: getBaseUrl(document.location.href),
+    baseUrl: 'https://code4pay.github.io/',
 });
 
 var LiveApi = window['binary-live-api'].LiveApi;
@@ -25,7 +25,7 @@ var getAppId = function () {
 
 var langCode = 'en';
 
-require(["/docson/docson.js", "/lib/jquery.js", "/lib/select2.min.js"], function(docson) {
+require(["docson/docson", "lib/jquery", "lib/select2.min"], function(docson) {
 
     var api,
         $console = $('#playground-console');
