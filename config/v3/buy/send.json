@@ -22,6 +22,7 @@
          "type" : "object",
          "description" : "Optional field, used to pass the parameters for contract buy",
          "additionalProperties" : false,
+         "required": [ "contract_type", "currency", "symbol" ], 
          "properties" : {
             "symbol" : {
                "pattern" : "^\\w{2,30}$",

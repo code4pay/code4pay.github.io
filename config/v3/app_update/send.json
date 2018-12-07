@@ -47,10 +47,8 @@
          "type" : "string"
       },
       "app_update" : {
-         "minimum" : 1,
          "type" : "integer",
-         "description" : "Application app_id",
-         "maximum" : "99999999999999999999"
+         "description" : "Application app_id"
       },
       "req_id" : {
          "description" : "Optional field to map request to response",

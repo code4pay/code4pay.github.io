@@ -5,7 +5,6 @@
     "description" : null,
     
     "required" : [
-        "copytrading_statistics",
         "echo_req",
         "msg_type"
     ],

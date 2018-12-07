@@ -3,6 +3,7 @@
    "type" : "object",
    "description" : null,
    "required" : [
+      "echo_req",
       "msg_type"
    ],
    "title" : "Get Exchange Rates",

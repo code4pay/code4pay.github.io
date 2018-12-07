@@ -13,10 +13,8 @@
          "type" : "integer"
       },
       "app_delete" : {
-         "minimum" : 1,
          "description" : "Application app_id",
-         "type" : "integer",
-         "maximum" : "99999999999999999999"
+         "type" : "integer"
       },
       "passthrough" : {
          "type" : "object",
