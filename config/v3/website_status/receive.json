@@ -14,7 +14,7 @@
          "type" : "string"
       },
       "website_status" : {
-         "required" : ["currency_config", "api_call_limits"],
+         "required" : ["currencies_config", "api_call_limits"],
          "properties" : {
             "supported_languages" : {
                "description" : "Provides codes for languages supported",
