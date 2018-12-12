@@ -144,7 +144,7 @@
                         }
                     }
                 }
-            }
+            
             },
             "message" : {
                "description" : "Text for site status banner, contains problem description.  Shown only if set by the system",
