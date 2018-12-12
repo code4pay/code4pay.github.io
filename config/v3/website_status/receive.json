@@ -2,7 +2,8 @@
    "$schema" : "http://json-schema.org/draft-04/schema#",
    "required" : [
       "echo_req",
-      "msg_type"
+      "msg_type",
+      "website_status"
    ],
    "type" : "object",
    "description" : null,
@@ -14,6 +15,7 @@
          "type" : "string"
       },
       "website_status" : {
+          "required" : ["currency_config", "api_call_limits"],
          "properties" : {
             "supported_languages" : {
                "description" : "Provides codes for languages supported",
@@ -29,43 +31,37 @@
             },
             "currencies_config": {
                 "type": "object",
-                "required": "1",
+                "required": ["fractional_digits", "type", "stake_default", "transfer_between_accounts"],
                 "properties": {
                     "^[A-Z]{3-4}$": {
                         "type": "object",
                         "properties": {
                             "fractional_digits": {
                                 "type": "number",
-                                "pattern": "^[0-9]+$",
-                                "required": "1"
+                                "pattern": "^[0-9]+$"
                             },
                             "type": {
-                                "enum": ["fiat", "crypto"],
-                                "required": "1"
+                                "enum": ["fiat", "crypto"]
                             },
                             "stake_default": {
                                 "type": "number",
-                                "minimum": "0",
-                                "required": "1"
+                                "minimum": "0"
                             },
                             "transfer_between_accounts": {
                                 "type": "object",
-                                "required": "1",
+                                "required": ["limits","fees"],
                                 "properties": {
                                     "limits": {
                                         "type": "object",
-                                        "required": "1",
                                         "properties": {
                                             "min": {
                                                 "type": "number",
-                                                "minimum": 0,
-                                                "required": "1"
+                                                "minimum": 0
                                             }
                                         }
                                     },
                                     "fees": {
                                         "type": "object",
-                                        "required": "1",
                                         "properties": {
                                             "^[A-Z]{3-4}$": {
                                                 "type": "number",
@@ -82,84 +78,74 @@
             },
             "api_call_limits": {
                 "type": "object",
-                "required": "1",
+                "required": ["max_proposal_subscription", "max_requests_pricing","max_requests_outcome","max_requestes_general"],
                 "properties": {
                     "max_proposal_subscription": {
                         "type": "object",
-                        "required": "1",
+                        "required": ["max","applies_to"],
                         "properties": {
                             "max": {
                                 "type": "number",
-                                "pattern": "^5$",
-                                "required": "1"
+                                "pattern": "^5$"
                             },
                             "applies_to": {
-                                "type": "string",
-                                "required": "1"
+                                "type": "string"
                             }
                         }
                     },
                     "max_requests_pricing": {
                         "type": "object",
-                        "required": "1",
+                        "required": ["minutely","hourly", "applies_to"],
                         "properties": {
                             "minutely": {
                                 "type": "number",
-                                "pattern": "^66$",
-                                "required": "1"
+                                "pattern": "^66$"
                             },
                             "hourly": {
                                 "type": "number",
-                                "pattern": "^266$",
-                                "required": "1"
+                                "pattern": "^266$"
                             },
                             "applies_to": {
-                                "type": "string",
-                                "required": "1"
+                                "type": "string"
                             }
                         }
                     },
                     "max_requests_outcome": {
                         "type": "object",
-                        "required": "1",
+                        "required": ["minutely","hourly","applies_to"],
                         "properties": {
                             "minutely": {
                                 "type": "number",
-                                "pattern": "^55$",
-                                "required": "1"
+                                "pattern": "^55$"
                             },
                             "hourly": {
                                 "type": "number",
-                                "pattern": "^255$",
-                                "required": "1"
+                                "pattern": "^255$"
                             },
                             "applies_to": {
-                                "type": "string",
-                                "required": "1"
+                                "type": "string"
                             }
                         }
                     },
                     "max_requestes_general": {
                         "type": "object",
-                        "required": "1",
+                        "required": ["minutely","hourly","applies_to"],
                         "properties": {
                             "minutely": {
                                 "type": "number",
-                                "pattern": "^244$",
-                                "required": "1"
+                                "pattern": "^244$"
                             },
                             "hourly": {
                                 "type": "number",
-                                "pattern": "^244$",
-                                "required": "1"
+                                "pattern": "^244$"
                             },
                             "applies_to": {
-                                "type": "string",
-                                "required": "1"
+                                "type": "string"
                             }
                         }
                     }
                 }
+            }
             },
             "message" : {
                "description" : "Text for site status banner, contains problem description.  Shown only if set by the system",
