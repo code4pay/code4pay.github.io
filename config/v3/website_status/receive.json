@@ -7,7 +7,6 @@
    ],
    "type" : "object",
    "description" : null,
-   
    "title" : "Website Status Response",
    "properties" : {
       "msg_type" : {
@@ -15,7 +14,7 @@
          "type" : "string"
       },
       "website_status" : {
-          "required" : ["currency_config", "api_call_limits"],
+         "required" : ["currency_config", "api_call_limits"],
          "properties" : {
             "supported_languages" : {
                "description" : "Provides codes for languages supported",
