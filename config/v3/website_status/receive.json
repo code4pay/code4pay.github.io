@@ -39,7 +39,7 @@
                             },
                             "stake_default": {
                                 "type": "number",
-                                "minimum": "0"
+                                "minimum": 0
                             },
                             "transfer_between_accounts": {
                                 "type": "object",
@@ -80,7 +80,7 @@
                         "properties": {
                             "max": {
                                 "type": "number",
-                                "pattern": "^5$"
+                                "enum": [5]
                             },
                             "applies_to": {
                                 "type": "string"
@@ -93,11 +93,11 @@
                         "properties": {
                             "minutely": {
                                 "type": "number",
-                                "pattern": "^66$"
+                                "enum": [66]
                             },
                             "hourly": {
                                 "type": "number",
-                                "pattern": "^266$"
+                                "enum": [266]
                             },
                             "applies_to": {
                                 "type": "string"
@@ -110,11 +110,11 @@
                         "properties": {
                             "minutely": {
                                 "type": "number",
-                                "pattern": "^55$"
+                                "enum": [55]
                             },
                             "hourly": {
                                 "type": "number",
-                                "pattern": "^255$"
+                                "enum": [255]
                             },
                             "applies_to": {
                                 "type": "string"
@@ -127,11 +127,11 @@
                         "properties": {
                             "minutely": {
                                 "type": "number",
-                                "pattern": "^244$"
+                                "enum": [244]
                             },
                             "hourly": {
                                 "type": "number",
-                                "pattern": "^244$"
+                                "enum": [244]
                             },
                             "applies_to": {
                                 "type": "string"
