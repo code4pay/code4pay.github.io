@@ -32,8 +32,7 @@
                         "required": ["fractional_digits", "type", "stake_default", "transfer_between_accounts"],
                         "properties": {
                             "fractional_digits": {
-                                "type": "number",
-                                "pattern": "^[0-9]+$"
+                                "type": "number"
                             },
                             "type": {
                                 "enum": ["fiat", "crypto"]
