@@ -15,7 +15,6 @@
       },
       "echo_req" : {
          "title" : "Echo request",
-         "required" : "1",
          "type" : "object",
          "description" : "Echo of the request json message"
       },

@@ -23,16 +23,11 @@
                   "type" : "string"
                }
             },
-            "api_call_limits" : {
-               "title" : "API call limits",
-               "description" : "Limits for api call for each websocket connection",
-               "type" : "object"
-            },
             "currencies_config": {
                 "type": "object",
-                "required" :  ["^[A-Z]{3-4}$"],
-                "properties": {
-                    "^[A-Z]{3-4}$": {
+                "minProperties" :  1,
+                "patternProperties": {
+                    "^[A-Z]{3,4}$": {
                         "type": "object",
                         "required": ["fractional_digits", "type", "stake_default", "transfer_between_accounts"],
                         "properties": {
@@ -62,8 +57,8 @@
                                     },
                                     "fees": {
                                         "type": "object",
-                                        "properties": {
-                                            "^[A-Z]{3-4}$": {
+                                        "patternProperties": {
+                                            "^[A-Z]{3,4}$": {
                                                 "type": "number",
                                                 "minimum": 0,
                                                 "maximum": 7

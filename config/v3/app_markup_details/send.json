@@ -67,7 +67,6 @@
             "pattern" : "^transaction_time|app_id|client_loginid$",
             "type" : "string"
          },
-         "required" : "0",
          "minItems" : 0,
          "uniqueItems" : true,
          "maxItems" : 3

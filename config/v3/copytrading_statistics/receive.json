@@ -3,7 +3,7 @@
     "type" : "object",
     "title" : "Copy Trading Statistics Response",
     "description" : null,
-    
+
     "required" : [
         "echo_req",
         "msg_type"
@@ -23,8 +23,17 @@
         },
         "copytrading_statistics" : {
             "required" : [
+                "copiers",
+                "performance_probability",
+                "active_since",
                 "monthly_profitable_trades",
-                "trades_breakdown"
+                "trades_breakdown", 
+                "total_trades", 
+                "trades_profitable", 
+                "avg_profit", 
+                "last_12months_profitable_trades", 
+                "avg_loss",
+                "avg_duration"
             ],
             "additionalProperties" : false,
             "type" : "object",
@@ -42,80 +51,69 @@
 
                     "minProperties" : 1,
                     "maxProperties" : 1
-                }
-            },
-            "performance_probability" : {
-                "type" : "number",
-                "description" : "Trader performance probability."
-            },
-            "trades_profitable" : {
-                "description" : "Number of profit trades in percentage.",
-                "type" : "number",
-                "requred" : 1
-            },
-            "avg_profit" : {
-                "description" : "Average profit of trades in percentage.",
-                "requred" : 1,
-                "type" : "number"
-            },
-            "last_12months_profitable_trades" : {
-                "description" : "Represents the net change in equity for a 12-month period.",
-                "type" : "number",
-                "requred" : 1
-            },
-            "trades_breakdown" : {
-                "patternProperties" : {
-                    "^\\w+$" : {
-                        "description" : "Number of trades in percentage.",
-                        "type" : "number"
+                },
+                "performance_probability" : {
+                    "type" : "number",
+                    "description" : "Trader performance probability."
+                },
+                "trades_profitable" : {
+                    "description" : "Number of profit trades in percentage.",
+                    "type" : "number"
+                },
+                "avg_profit" : {
+                    "description" : "Average profit of trades in percentage.",
+                    "type" : "number"
+                },
+                "last_12months_profitable_trades" : {
+                    "description" : "Represents the net change in equity for a 12-month period.",
+                    "type" : "number"
+                },
+                "trades_breakdown" : {
+                    "patternProperties" : {
+                        "^\\w+$" : {
+                            "description" : "Number of trades in percentage.",
+                            "type" : "number"
+                        },
+                        "minProperties" : 1,
+                        "maxProperties" : 1
                     },
+                    "type" : "object",
+                    "description" : "Represents the portfolio distribution by markets."
+                },
+                "copiers" : {
+                    "description" : "Trader copiers count.",
+                    "type" : "number"
+                },
+                "avg_loss" : {
+                    "description" : "Average loss of trades in percentage.",
+                    "type" : "number"
+                },
+                "total_trades" : {
+                    "type" : "integer",
+                    "description" : "Total number of trades for all time."
+                },
+                "active_since" : {
+                    "type" : "integer",
+                    "description" : "This is the epoch the investor started trading with binary.com"
+                },
+                "avg_duration" : {
+                    "type" : "integer",
+                    "description" : "Average seconds of keeping positions open."
+                },
+                "yearly_profitable_trades" : {
+                    "patternProperties" : {
+                        "^[0-9]{4}$" : {
+                            "type" : "number",
+                            "description" : "Yearly profitable trades in percentage."
+                        }
+                    },
+                    "type" : "object",
                     "minProperties" : 1,
-                    "maxProperties" : 1
-                },
-                "type" : "object",
-                "description" : "Represents the portfolio distribution by markets."
-            },
-            "copiers" : {
-                "description" : "Trader copiers count.",
-                "type" : "number"
-            },
-            "avg_loss" : {
-                "description" : "Average loss of trades in percentage.",
-                "requred" : 1,
-                "type" : "number"
-            },
-            "total_trades" : {
-                "requred" : 1,
-                "type" : "integer",
-                "description" : "Total number of trades for all time."
-            },
-            "active_since" : {
-                "type" : "integer",
-                "description" : "This is the epoch the investor started trading with binary.com"
-            },
-            "avg_duration" : {
-                "type" : "integer",
-                "requred" : 1,
-                "description" : "Average seconds of keeping positions open."
-            },
-            "yearly_profitable_trades" : {
-                "patternProperties" : {
-                    "^[0-9]{4}$" : {
-                        "type" : "number",
-                        "description" : "Yearly profitable trades in percentage."
-                    }
-                },
-                "type" : "object",
-                "minProperties" : 1,
-                "maxProperties" : 1,
-                "description" : "Represents the net change in equity per year."
+                    "maxProperties" : 1,
+                    "description" : "Represents the net change in equity per year."
+                }
             }
-        },
-        "required" : [
-            "copiers",
-            "performance_probability",
-            "active_since"
-        ]
+        }
     }
 }
 
