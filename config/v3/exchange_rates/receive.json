@@ -32,7 +32,7 @@
             "rates" : {
                "type" : "object",
                "description" : "Rates of exchanging a unit of base currency into the target currencies",
-               "properties" : {
+               "patternProperties" : {
                   "^[A-Z]{3}$" : {
                      "type" : "number",
                      "description" : "The rate of exchanging a unit of the base currency into a target currency (represented by the key)"
