@@ -141,10 +141,6 @@
                 }
             
             },
-            "message" : {
-               "description" : "Text for site status banner, contains problem description.  Shown only if set by the system",
-               "type" : "string"
-            },
             "site_status" : {
                "pattern" : "^(up|down)$",
                "description" : "Current status of the site. up or down",
